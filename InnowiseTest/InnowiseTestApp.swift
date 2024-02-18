@@ -14,7 +14,7 @@ struct InnowiseTestApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PokemonListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(appState)
                 .environment(\.interactors, interactorsContainer)

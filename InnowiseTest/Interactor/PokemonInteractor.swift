@@ -28,9 +28,12 @@ struct RealPokemonInteractor: PokemonInteractor {
     }
     
     func loadMorePokemons() async throws {
-        let (newPokemons, availibleCount) = try await webRepository.loadPokemons(fromOffset: appState.userData.pokemons.count, limit: step)
-        appState.userData.pokemonsAvailibleCount = availibleCount
-        appState.userData.pokemons.append(contentsOf: newPokemons)
+        if (!appState.userData.allPokemonsLoaded) {
+            let (newPokemons, availibleCount) = try await webRepository.loadPokemons(fromOffset: appState.userData.pokemons.count, limit: step)
+            Task {
+                await appState.addPokemons(newPokemons: newPokemons, pokemonsAvailibleCount: availibleCount)
+            }
+        }
     }
     
     func loadPokemonDetails() async throws {

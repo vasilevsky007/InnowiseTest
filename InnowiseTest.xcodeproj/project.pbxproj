@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */; };
-		FAC57FF72B80DD14008D1ACD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FF62B80DD14008D1ACD /* ContentView.swift */; };
+		FAC57FF72B80DD14008D1ACD /* PokemonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */; };
 		FAC57FF92B80DD17008D1ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC57FF82B80DD17008D1ACD /* Assets.xcassets */; };
 		FAC57FFC2B80DD17008D1ACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC57FFB2B80DD17008D1ACD /* Preview Assets.xcassets */; };
 		FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FFD2B80DD17008D1ACD /* Persistence.swift */; };
@@ -24,7 +24,7 @@
 /* Begin PBXFileReference section */
 		FAC57FF12B80DD14008D1ACD /* InnowiseTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnowiseTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnowiseTestApp.swift; sourceTree = "<group>"; };
-		FAC57FF62B80DD14008D1ACD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListView.swift; sourceTree = "<group>"; };
 		FAC57FF82B80DD17008D1ACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC57FFB2B80DD17008D1ACD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAC57FFD2B80DD17008D1ACD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		FAC580072B80DE1D008D1ACD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FAC57FF62B80DD14008D1ACD /* ContentView.swift */,
+				FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 				FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */,
 				FAC5800C2B80E879008D1ACD /* AppState.swift in Sources */,
 				FAC580012B80DD17008D1ACD /* InnowiseTest.xcdatamodeld in Sources */,
-				FAC57FF72B80DD14008D1ACD /* ContentView.swift in Sources */,
+				FAC57FF72B80DD14008D1ACD /* PokemonListView.swift in Sources */,
 				FAC580102B81FB47008D1ACD /* PokemonInteractor.swift in Sources */,
 				FAC5801B2B8208A0008D1ACD /* Pokemon.swift in Sources */,
 				FAC580252B822978008D1ACD /* InteractorsContainer.swift in Sources */,
