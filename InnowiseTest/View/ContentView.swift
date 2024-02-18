@@ -9,8 +9,10 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @EnvironmentObject private var appState: AppState
+    @Environment(\.interactors) var interactors: InteractorsContainer
+    
     @Environment(\.managedObjectContext) private var viewContext
-
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
@@ -19,26 +21,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(appState.userData.pokemons) { pokemon in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text("Pokemon at \(pokemon.url) is \(pokemon.name)")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                        Text(pokemon.name)
                     }
                 }
             }
-            Text("Select an item")
+            Text("Select a pokemon")
+        }.task {
+            try? await interactors.pokemonInteractor.loadMorePokemons()
         }
     }
 
@@ -74,13 +67,10 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    let (appState, interactorsContainer) = InnowiseTestApp.createDependencies()
+    return ContentView()
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        .environmentObject(appState)
+        .environment(\.interactors, interactorsContainer)
 }

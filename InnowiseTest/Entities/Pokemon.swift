@@ -14,6 +14,12 @@ struct Pokemon: Equatable, Codable {
     let details: Details?
 }
 
+extension Pokemon: Identifiable {
+    var id: URL {
+        self.url
+    }
+}
+
 extension Pokemon {
     ///details struct, used for additional information on pokemon details page.
     struct Details: Equatable, Codable {
@@ -21,6 +27,7 @@ extension Pokemon {
             let front: URL
         }
         
+        /// wrapper on ``Types``
         struct PokemonType: Equatable, Codable {
             let name: Types
         }

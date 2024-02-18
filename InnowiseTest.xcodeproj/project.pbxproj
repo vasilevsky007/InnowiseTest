@@ -17,6 +17,8 @@
 		FAC580102B81FB47008D1ACD /* PokemonInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */; };
 		FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */; };
 		FAC5801B2B8208A0008D1ACD /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5801A2B8208A0008D1ACD /* Pokemon.swift */; };
+		FAC580212B82187D008D1ACD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580202B82187D008D1ACD /* API.swift */; };
+		FAC580252B822978008D1ACD /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580242B822978008D1ACD /* InteractorsContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInteractor.swift; sourceTree = "<group>"; };
 		FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonWebRepository.swift; sourceTree = "<group>"; };
 		FAC5801A2B8208A0008D1ACD /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		FAC580202B82187D008D1ACD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FAC580242B822978008D1ACD /* InteractorsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				FAC580192B820887008D1ACD /* Entities */,
-				FAC580132B820472008D1ACD /* Utils */,
-				FAC5800A2B80DE56008D1ACD /* Repository */,
 				FAC580092B80DE34008D1ACD /* AppState */,
 				FAC580082B80DE27008D1ACD /* Interactor */,
 				FAC580072B80DE1D008D1ACD /* View */,
+				FAC5800A2B80DE56008D1ACD /* Repository */,
+				FAC580132B820472008D1ACD /* Utils */,
 				FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */,
 				FAC57FF82B80DD17008D1ACD /* Assets.xcassets */,
 				FAC57FFD2B80DD17008D1ACD /* Persistence.swift */,
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */,
+				FAC580242B822978008D1ACD /* InteractorsContainer.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 		FAC580132B820472008D1ACD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FAC580202B82187D008D1ACD /* API.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -209,7 +215,9 @@
 				FAC57FF72B80DD14008D1ACD /* ContentView.swift in Sources */,
 				FAC580102B81FB47008D1ACD /* PokemonInteractor.swift in Sources */,
 				FAC5801B2B8208A0008D1ACD /* Pokemon.swift in Sources */,
+				FAC580252B822978008D1ACD /* InteractorsContainer.swift in Sources */,
 				FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */,
+				FAC580212B82187D008D1ACD /* API.swift in Sources */,
 				FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
