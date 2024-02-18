@@ -13,6 +13,10 @@
 		FAC57FFC2B80DD17008D1ACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC57FFB2B80DD17008D1ACD /* Preview Assets.xcassets */; };
 		FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FFD2B80DD17008D1ACD /* Persistence.swift */; };
 		FAC580012B80DD17008D1ACD /* InnowiseTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FFF2B80DD17008D1ACD /* InnowiseTest.xcdatamodeld */; };
+		FAC5800C2B80E879008D1ACD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5800B2B80E879008D1ACD /* AppState.swift */; };
+		FAC580102B81FB47008D1ACD /* PokemonInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */; };
+		FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */; };
+		FAC5801B2B8208A0008D1ACD /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5801A2B8208A0008D1ACD /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		FAC57FFB2B80DD17008D1ACD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAC57FFD2B80DD17008D1ACD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		FAC580002B80DD17008D1ACD /* InnowiseTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InnowiseTest.xcdatamodel; sourceTree = "<group>"; };
+		FAC5800B2B80E879008D1ACD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInteractor.swift; sourceTree = "<group>"; };
+		FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonWebRepository.swift; sourceTree = "<group>"; };
+		FAC5801A2B8208A0008D1ACD /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +63,13 @@
 		FAC57FF32B80DD14008D1ACD /* InnowiseTest */ = {
 			isa = PBXGroup;
 			children = (
+				FAC580192B820887008D1ACD /* Entities */,
+				FAC580132B820472008D1ACD /* Utils */,
+				FAC5800A2B80DE56008D1ACD /* Repository */,
+				FAC580092B80DE34008D1ACD /* AppState */,
+				FAC580082B80DE27008D1ACD /* Interactor */,
+				FAC580072B80DE1D008D1ACD /* View */,
 				FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */,
-				FAC57FF62B80DD14008D1ACD /* ContentView.swift */,
 				FAC57FF82B80DD17008D1ACD /* Assets.xcassets */,
 				FAC57FFD2B80DD17008D1ACD /* Persistence.swift */,
 				FAC57FFF2B80DD17008D1ACD /* InnowiseTest.xcdatamodeld */,
@@ -71,6 +84,53 @@
 				FAC57FFB2B80DD17008D1ACD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FAC580072B80DE1D008D1ACD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAC57FF62B80DD14008D1ACD /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAC580082B80DE27008D1ACD /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FAC580092B80DE34008D1ACD /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5800B2B80E879008D1ACD /* AppState.swift */,
+			);
+			path = AppState;
+			sourceTree = "<group>";
+		};
+		FAC5800A2B80DE56008D1ACD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FAC580132B820472008D1ACD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FAC580192B820887008D1ACD /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5801A2B8208A0008D1ACD /* Pokemon.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,9 +204,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */,
+				FAC5800C2B80E879008D1ACD /* AppState.swift in Sources */,
 				FAC580012B80DD17008D1ACD /* InnowiseTest.xcdatamodeld in Sources */,
 				FAC57FF72B80DD14008D1ACD /* ContentView.swift in Sources */,
+				FAC580102B81FB47008D1ACD /* PokemonInteractor.swift in Sources */,
+				FAC5801B2B8208A0008D1ACD /* Pokemon.swift in Sources */,
 				FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */,
+				FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,16 +347,18 @@
 				DEVELOPMENT_TEAM = NBYQDHH5LM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pokemons;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.alex.vasilevski007.InnowiseTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -312,16 +378,18 @@
 				DEVELOPMENT_TEAM = NBYQDHH5LM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pokemons;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.alex.vasilevski007.InnowiseTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
