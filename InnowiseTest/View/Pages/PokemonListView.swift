@@ -21,11 +21,14 @@ struct PokemonListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(appState.userData.pokemons) { pokemon in
+                ForEach($appState.userData.pokemons) { pokemon in
                     NavigationLink {
-                        Text("Pokemon at \(pokemon.url) is \(pokemon.name)")
+                        PokemonDetailsView(pokemon: pokemon)
+                            .task {
+                                try? await interactors.pokemonInteractor.loadPokemonDetails(pokemon: pokemon.wrappedValue)
+                            }
                     } label: {
-                        Text(pokemon.name.localizedCapitalized)
+                        Text(pokemon.wrappedValue.name.localizedCapitalized)
                     }
                 }
                 if(!appState.userData.allPokemonsLoaded) {
@@ -35,7 +38,6 @@ struct PokemonListView: View {
                         ProgressView()
                         Spacer()
                     }.task {
-                        print("sd")
                         try? await interactors.pokemonInteractor.loadMorePokemons()
                     }
                 }

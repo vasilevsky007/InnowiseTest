@@ -11,7 +11,7 @@ import Foundation
 struct Pokemon: Equatable, Codable {
     let name: String
     let url: URL
-    let details: Details?
+    var details: Details?
 }
 
 extension Pokemon: Identifiable {
@@ -24,18 +24,45 @@ extension Pokemon {
     ///details struct, used for additional information on pokemon details page.
     struct Details: Equatable, Codable {
         struct Sprites: Equatable, Codable {
-            let front: URL
+            let front: URL?
+            
+            enum CodingKeys: String, CodingKey {
+                case front = "front_default"
+            }
         }
         
-        /// wrapper on ``Types``
+        ///types of the pokemon
         struct PokemonType: Equatable, Codable {
-            let name: Types
+            /// wrapper on ``Types``
+            struct Typee: Equatable, Codable {
+                let name: Types
+            }
+            let slot: Int
+            let type: Typee
         }
         
-        let height: Int
-        let weight: Int
+        let height: PokemonHeight
+        let weight: PokemonWeight
         let sprites: Sprites
         let types: [PokemonType]
+    }
+}
+
+extension Pokemon.Details {
+    typealias PokemonWeight = Int
+    typealias PokemonHeight = Int
+}
+
+extension Pokemon.Details.PokemonWeight {
+    //regretfully, this will be showing on any int...
+    var kg: String {
+        "\((Double(self) / 10))"
+    }
+}
+extension Pokemon.Details.PokemonHeight {
+    //regretfully, this will be showing on any int...
+    var cm: String {
+        "\(self * 10)"
     }
 }
 
@@ -60,6 +87,7 @@ extension Pokemon.Details {
         case dragon
         case dark
         case fairy
+        //i guess it's Stellar, some translate issues??? look https://bulbapedia.bulbagarden.net/wiki/Type for reference
         case shadow
         case unknown
     }

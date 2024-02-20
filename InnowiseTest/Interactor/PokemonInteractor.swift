@@ -10,7 +10,7 @@ import Foundation
 ///Interactors should be “facaded” with a protocol so that the View could talk to a mocked Interactor in tests.
 protocol PokemonInteractor {
     func loadMorePokemons() async throws
-    func loadPokemonDetails() async throws
+    func loadPokemonDetails(pokemon: Pokemon) async throws
 }
 
 ///Interactors receive requests to perform work, such as obtaining data from an external source or making computations, but they never return data back directly, such as in a closure.
@@ -36,8 +36,11 @@ struct RealPokemonInteractor: PokemonInteractor {
         }
     }
     
-    func loadPokemonDetails() async throws {
-        
+    func loadPokemonDetails(pokemon: Pokemon) async throws {
+        let details = try await webRepository.loadPokemonDetails(pokemon: pokemon)
+        Task {
+            await appState.addDetails(details, to: pokemon)
+        }
     }
 }
 
@@ -45,6 +48,6 @@ struct FakePokemonInteractor: PokemonInteractor {
     func loadMorePokemons() async throws {
     }
     
-    func loadPokemonDetails() async throws {
+    func loadPokemonDetails(pokemon: Pokemon) async throws {
     }
 }

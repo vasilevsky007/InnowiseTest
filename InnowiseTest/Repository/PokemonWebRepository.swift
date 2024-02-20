@@ -9,7 +9,7 @@ import Foundation
 
 protocol PokemonWebRepository {
     func loadPokemons(fromOffset: Int, limit: Int) async throws -> (pokemons:[Pokemon], availibleCount: Int) 
-    func loadPokemonDetails(pokemon: Pokemon)
+    func loadPokemonDetails(pokemon: Pokemon) async throws -> Pokemon.Details
 }
 
 struct RealPokemonWebRepository: PokemonWebRepository {
@@ -28,7 +28,9 @@ struct RealPokemonWebRepository: PokemonWebRepository {
         return (dataDecoded.results, dataDecoded.count)
     }
     
-    func loadPokemonDetails(pokemon: Pokemon) {
-        
+    func loadPokemonDetails(pokemon: Pokemon) async throws -> Pokemon.Details {
+        let (receivedData, response) = try await session.data(from: pokemon.url)
+        let dataDecoded = try JSONDecoder().decode(Pokemon.Details.self, from: receivedData)
+        return dataDecoded
     }
 }
