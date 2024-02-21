@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Combine
 
 ///Interactors should be “facaded” with a protocol so that the View could talk to a mocked Interactor in tests.
 protocol PokemonInteractor {
     func loadMorePokemons() async throws
     func loadPokemonDetails(pokemon: Pokemon) async throws
+    func clearCache()
 }
 
 ///Interactors receive requests to perform work, such as obtaining data from an external source or making computations, but they never return data back directly, such as in a closure.
@@ -20,26 +22,57 @@ struct RealPokemonInteractor: PokemonInteractor {
     private let step = 30
     private var availibleCount: Int?
     private var webRepository: PokemonWebRepository
+    private var coreDataRepositiry: PokemonCoreDataRepository
     private var appState: AppState
     
-    init(webRepository: PokemonWebRepository, appState: AppState) {
+    private var cancellables = Set<AnyCancellable>()
+    
+    init(webRepository: PokemonWebRepository, coreDataRepositiry: PokemonCoreDataRepository, appState: AppState) {
         self.webRepository = webRepository
+        self.coreDataRepositiry = coreDataRepositiry
         self.appState = appState
+        
+        coreDataRepositiry.coreDataSize
+            .sink { fileSize in
+                Task{
+                    await appState.changeCacheSize(fileSize)
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func loadMorePokemons() async throws {
         if (!appState.userData.allPokemonsLoaded) {
-            let (newPokemons, availibleCount) = try await webRepository.loadPokemons(fromOffset: appState.userData.pokemons.count, limit: step)
-            Task {
-                await appState.addPokemons(newPokemons: newPokemons, pokemonsAvailibleCount: availibleCount)
+            do {
+                let (newPokemons, availibleCount) = try await webRepository.loadPokemons(fromOffset: appState.userData.pokemons.count, limit: step)
+                Task {
+                    await appState.addPokemons(newPokemons: newPokemons, pokemonsAvailibleCount: availibleCount)
+                }
+                try? coreDataRepositiry.savePokemons(newPokemons, fromOffset: appState.userData.pokemons.count, availibleCount: availibleCount)
+            } catch {
+                let (newPokemons, availibleCount) = try coreDataRepositiry.loadPokemons(fromOffset: appState.userData.pokemons.count, limit: step)
+                Task {
+                    await appState.addPokemons(newPokemons: newPokemons, pokemonsAvailibleCount: availibleCount)
+                }
             }
         }
     }
     
     func loadPokemonDetails(pokemon: Pokemon) async throws {
-        let details = try await webRepository.loadPokemonDetails(pokemon: pokemon)
-        Task {
-            await appState.addDetails(details, to: pokemon)
+        if pokemon.details == nil {
+            let details = try await webRepository.loadPokemonDetails(pokemon: pokemon)
+            Task {
+                await appState.addDetails(details, to: pokemon)
+            }
+            try coreDataRepositiry.updatePokemon(pokemon, updatedDetails: details)
+        }
+    }
+    
+    func clearCache() {
+        do {
+            try coreDataRepositiry.clearStorage()
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
@@ -49,5 +82,7 @@ struct FakePokemonInteractor: PokemonInteractor {
     }
     
     func loadPokemonDetails(pokemon: Pokemon) async throws {
+    }
+    func clearCache(){
     }
 }

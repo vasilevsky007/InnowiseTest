@@ -61,28 +61,28 @@ struct PokemonDetailsView: View {
     }
 }
 
-//#Preview("loading") {
-//    PokemonDetailsView(pokemon: Pokemon(
-//        name: "bulbasaur",
-//        url: URL(string: "https://pokeapi.co/api/v2/pokemon/1/")!,
-//        details: nil
-//    ))
-//}
-//#Preview("loaded") {
-//    PokemonDetailsView(pokemon: Pokemon(
-//        name: "bulbasaur",
-//        url: URL(string: "https://pokeapi.co/api/v2/pokemon/1/")!,
-//        details: Pokemon.Details(
-//            height: 7,
-//            weight: 69,
-//            sprites: Pokemon.Details.Sprites(front: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")),
-//            types: [
-//                .init(slot: 1, type: .init(name: .bug)),
-//                .init(slot: 2, type: .init(name: .fire)),
-//                .init(slot: 3, type: .init(name: .ice)),
-//                .init(slot: 4, type: .init(name: .fighting)),
-//                .init(slot: 5, type: .init(name: .electric)),
-//            ]
-//        )
-//    ))
-//}
+#Preview("loading") {
+    PokemonDetailsView(pokemon: .constant(Pokemon(
+        name: "bulbasaur",
+        url: URL(string: "https://pokeapi.co/api/v2/pokemon/1/")!,
+        details: nil
+    )))
+}
+#Preview("loaded") {
+    PokemonDetailsView(pokemon: .constant(Pokemon(
+        name: "bulbasaur",
+        url: URL(string: "https://pokeapi.co/api/v2/pokemon/1/")!,
+        details: Pokemon.Details(
+            height: 7,
+            weight: 69,
+            sprites: Pokemon.Details.Sprites(front: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")),
+            types: [
+                .init(slot: 1, type: .init(name: .bug)),
+                .init(slot: 2, type: .init(name: .fire)),
+                .init(slot: 3, type: .init(name: .ice)),
+                .init(slot: 4, type: .init(name: .fighting)),
+                .init(slot: 5, type: .init(name: .electric)),
+            ]
+        )
+    )))
+}

@@ -12,7 +12,6 @@
 		FAC57FF92B80DD17008D1ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC57FF82B80DD17008D1ACD /* Assets.xcassets */; };
 		FAC57FFC2B80DD17008D1ACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC57FFB2B80DD17008D1ACD /* Preview Assets.xcassets */; };
 		FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FFD2B80DD17008D1ACD /* Persistence.swift */; };
-		FAC580012B80DD17008D1ACD /* InnowiseTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FFF2B80DD17008D1ACD /* InnowiseTest.xcdatamodeld */; };
 		FAC5800C2B80E879008D1ACD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5800B2B80E879008D1ACD /* AppState.swift */; };
 		FAC580102B81FB47008D1ACD /* PokemonInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */; };
 		FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */; };
@@ -22,7 +21,10 @@
 		FAC580272B84995C008D1ACD /* PokemonDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580262B84995C008D1ACD /* PokemonDetailsView.swift */; };
 		FAC5802B2B84A6EE008D1ACD /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5802A2B84A6EE008D1ACD /* Spinner.swift */; };
 		FAC5802E2B84AEA5008D1ACD /* PokemonTypeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5802D2B84AEA5008D1ACD /* PokemonTypeBadge.swift */; };
-		FAC580312B84B78F008D1ACD /* PokemonTypesVisulization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580302B84B78F008D1ACD /* PokemonTypesVisulization.swift */; };
+		FAC580312B84B78F008D1ACD /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC580302B84B78F008D1ACD /* TypeHelpers.swift */; };
+		FAE344132B85FB1800450AC6 /* InnowiseTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAE344112B85FB1800450AC6 /* InnowiseTest.xcdatamodeld */; };
+		FAE344152B85FD8500450AC6 /* PokemonCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE344142B85FD8500450AC6 /* PokemonCoreDataRepository.swift */; };
+		FAE344172B86070E00450AC6 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE344162B86070E00450AC6 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +34,6 @@
 		FAC57FF82B80DD17008D1ACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC57FFB2B80DD17008D1ACD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAC57FFD2B80DD17008D1ACD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		FAC580002B80DD17008D1ACD /* InnowiseTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InnowiseTest.xcdatamodel; sourceTree = "<group>"; };
 		FAC5800B2B80E879008D1ACD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInteractor.swift; sourceTree = "<group>"; };
 		FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonWebRepository.swift; sourceTree = "<group>"; };
@@ -42,7 +43,10 @@
 		FAC580262B84995C008D1ACD /* PokemonDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsView.swift; sourceTree = "<group>"; };
 		FAC5802A2B84A6EE008D1ACD /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		FAC5802D2B84AEA5008D1ACD /* PokemonTypeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeBadge.swift; sourceTree = "<group>"; };
-		FAC580302B84B78F008D1ACD /* PokemonTypesVisulization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypesVisulization.swift; sourceTree = "<group>"; };
+		FAC580302B84B78F008D1ACD /* TypeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeHelpers.swift; sourceTree = "<group>"; };
+		FAE344122B85FB1800450AC6 /* InnowiseTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InnowiseTest.xcdatamodel; sourceTree = "<group>"; };
+		FAE344142B85FD8500450AC6 /* PokemonCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCoreDataRepository.swift; sourceTree = "<group>"; };
+		FAE344162B86070E00450AC6 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +88,8 @@
 				FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */,
 				FAC57FF82B80DD17008D1ACD /* Assets.xcassets */,
 				FAC57FFD2B80DD17008D1ACD /* Persistence.swift */,
-				FAC57FFF2B80DD17008D1ACD /* InnowiseTest.xcdatamodeld */,
+				FAE344162B86070E00450AC6 /* Errors.swift */,
+				FAE344112B85FB1800450AC6 /* InnowiseTest.xcdatamodeld */,
 				FAC57FFA2B80DD17008D1ACD /* Preview Content */,
 			);
 			path = InnowiseTest;
@@ -128,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */,
+				FAE344142B85FD8500450AC6 /* PokemonCoreDataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -136,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC580202B82187D008D1ACD /* API.swift */,
-				FAC580302B84B78F008D1ACD /* PokemonTypesVisulization.swift */,
+				FAC580302B84B78F008D1ACD /* TypeHelpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -237,17 +243,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE344152B85FD8500450AC6 /* PokemonCoreDataRepository.swift in Sources */,
 				FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */,
+				FAE344132B85FB1800450AC6 /* InnowiseTest.xcdatamodeld in Sources */,
 				FAC5800C2B80E879008D1ACD /* AppState.swift in Sources */,
+				FAE344172B86070E00450AC6 /* Errors.swift in Sources */,
 				FAC5802E2B84AEA5008D1ACD /* PokemonTypeBadge.swift in Sources */,
-				FAC580012B80DD17008D1ACD /* InnowiseTest.xcdatamodeld in Sources */,
 				FAC580272B84995C008D1ACD /* PokemonDetailsView.swift in Sources */,
 				FAC57FF72B80DD14008D1ACD /* PokemonListView.swift in Sources */,
 				FAC580102B81FB47008D1ACD /* PokemonInteractor.swift in Sources */,
 				FAC5801B2B8208A0008D1ACD /* Pokemon.swift in Sources */,
 				FAC5802B2B84A6EE008D1ACD /* Spinner.swift in Sources */,
 				FAC580252B822978008D1ACD /* InteractorsContainer.swift in Sources */,
-				FAC580312B84B78F008D1ACD /* PokemonTypesVisulization.swift in Sources */,
+				FAC580312B84B78F008D1ACD /* TypeHelpers.swift in Sources */,
 				FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */,
 				FAC580212B82187D008D1ACD /* API.swift in Sources */,
 				FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */,
@@ -462,13 +470,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FAC57FFF2B80DD17008D1ACD /* InnowiseTest.xcdatamodeld */ = {
+		FAE344112B85FB1800450AC6 /* InnowiseTest.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FAC580002B80DD17008D1ACD /* InnowiseTest.xcdatamodel */,
+				FAE344122B85FB1800450AC6 /* InnowiseTest.xcdatamodel */,
 			);
-			currentVersion = FAC580002B80DD17008D1ACD /* InnowiseTest.xcdatamodel */;
-			path = InnowiseTest.xcdatamodeld;
+			currentVersion = FAE344122B85FB1800450AC6 /* InnowiseTest.xcdatamodel */;
+			name = InnowiseTest.xcdatamodeld;
+			path = ../../../Downloads/spolks5/InnowiseTest.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

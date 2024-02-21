@@ -20,6 +20,11 @@ extension AppState {
         var allPokemonsLoaded: Bool {
             pokemons.count >= pokemonsAvailibleCount ?? 1
         }
+        var cacheSize: Int64? = nil
+    }
+    
+    @MainActor func changeCacheSize(_ size: Int64?) {
+        self.userData.cacheSize = size
     }
     
     @MainActor func addPokemons(newPokemons: [Pokemon], pokemonsAvailibleCount: Int) {

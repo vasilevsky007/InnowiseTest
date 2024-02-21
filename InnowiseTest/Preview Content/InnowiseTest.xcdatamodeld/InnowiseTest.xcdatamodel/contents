@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Details" representedClassName="Details" parentEntity="Pokemon" syncable="YES" codeGenerationType="class">
+        <attribute name="height" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="weight" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="sprites" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Sprites"/>
+        <relationship name="types" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PokemonType"/>
+    </entity>
+    <entity name="Pokemon" representedClassName="Pokemon" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="url" attributeType="URI"/>
+        <relationship name="details" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Details"/>
+    </entity>
+    <entity name="PokemonType" representedClassName="PokemonType" parentEntity="Details" syncable="YES" codeGenerationType="class">
+        <attribute name="slot" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Typee"/>
+    </entity>
+    <entity name="Sprites" representedClassName="Sprites" parentEntity="Details" syncable="YES" codeGenerationType="class">
+        <attribute name="front" optional="YES" attributeType="URI"/>
+    </entity>
+    <entity name="Typee" representedClassName="Typee" parentEntity="PokemonType" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+</model>
