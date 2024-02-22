@@ -118,7 +118,7 @@ struct RealPokemonCoreDataRepository: PokemonCoreDataRepository {
         
         let fetchedPokemons = try context.fetch(request)
         guard let pokemonEntity = fetchedPokemons.first else {
-            throw PersistenceErrors.NoUpdatingPokemonInContext
+            throw PersistenceErrors.noUpdatingPokemonInContext
         }
         
         let detailsEncoded = try? JSONEncoder().encode(updatedDetails)

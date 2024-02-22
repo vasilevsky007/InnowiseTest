@@ -21,14 +21,14 @@ protocol PokemonInteractor {
 struct RealPokemonInteractor: PokemonInteractor {
     private let step = 30
     private var webRepository: PokemonWebRepository
-    private var coreDataRepositiry: PokemonCoreDataRepository
+    private var coreDataRepository: PokemonCoreDataRepository
     private var appState: AppState
     
     private var cancellables = Set<AnyCancellable>()
     
     init(webRepository: PokemonWebRepository, coreDataRepositiry: PokemonCoreDataRepository, appState: AppState) {
         self.webRepository = webRepository
-        self.coreDataRepositiry = coreDataRepositiry
+        self.coreDataRepository = coreDataRepositiry
         self.appState = appState
         
         coreDataRepositiry.coreDataSize
@@ -49,9 +49,12 @@ struct RealPokemonInteractor: PokemonInteractor {
                 Task {
                     await appState.addPokemons(newPokemons: newPokemons, pokemonsAvailibleCount: availibleCount)
                 }
-                try? coreDataRepositiry.savePokemons(newPokemons, fromOffset: appState.userData.pokemons.count, availibleCount: availibleCount)
+                try? coreDataRepository.savePokemons(newPokemons, fromOffset: appState.userData.pokemons.count, availibleCount: availibleCount)
             } catch {
-                let (newPokemons, availibleCount) = try coreDataRepositiry.loadPokemons(fromOffset: appState.userData.pokemons.count, limit: step)
+                let (newPokemons, availibleCount) = try coreDataRepository.loadPokemons(fromOffset: appState.userData.pokemons.count, limit: step)
+                if newPokemons.count < 1 && !appState.userData.allPokemonsLoaded {
+                    throw PersistenceErrors.noMorePokemonsInContext
+                }
                 Task {
                     await appState.addPokemons(newPokemons: newPokemons, pokemonsAvailibleCount: availibleCount)
                 }
@@ -68,14 +71,14 @@ struct RealPokemonInteractor: PokemonInteractor {
             Task {
                 await appState.addDetails(details, to: pokemon)
             }
-            try coreDataRepositiry.updatePokemon(pokemon, updatedDetails: details)
+            try coreDataRepository.updatePokemon(pokemon, updatedDetails: details)
         }
     }
     
     /// clears persistant storage, except items that are currently showing
     func clearCache() {
         do {
-            try coreDataRepositiry.clearStorage(fromOffset: appState.userData.pokemons.count)
+            try coreDataRepository.clearStorage(fromOffset: appState.userData.pokemons.count)
         } catch {
             print(error.localizedDescription)
         }

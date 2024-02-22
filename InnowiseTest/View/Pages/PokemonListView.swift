@@ -13,6 +13,10 @@ struct PokemonListView: View {
     @EnvironmentObject private var appState: AppState
     @Environment(\.interactors) var interactors: InteractorsContainer
     
+    @State private var isShowingAlert = false
+    @State private var errorNeedsReload = false
+    @State private var errorShowing: Error?
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -23,7 +27,13 @@ struct PokemonListView: View {
                                 .navigationTitle(pokemon.wrappedValue.name.localizedCapitalized)
                                 .navigationBarTitleDisplayMode(.inline)
                                 .task {
-                                    try? await interactors.pokemonInteractor.loadPokemonDetails(pokemon: pokemon.wrappedValue)
+                                    do {
+                                        try await interactors.pokemonInteractor.loadPokemonDetails(pokemon: pokemon.wrappedValue)
+                                    } catch {
+                                        errorShowing = error
+                                        errorNeedsReload = false
+                                        isShowingAlert = true
+                                    }
                                 }
                         } label: {
                             Text(pokemon.wrappedValue.name.localizedCapitalized)
@@ -36,7 +46,13 @@ struct PokemonListView: View {
                             ProgressView()
                             Spacer()
                         }.task {
-                            try? await interactors.pokemonInteractor.loadMorePokemons()
+                            do {
+                                try await interactors.pokemonInteractor.loadMorePokemons()
+                            } catch {
+                                errorShowing = error
+                                errorNeedsReload = true
+                                isShowingAlert = true
+                            }
                         }
                     }
                 }
@@ -53,6 +69,28 @@ struct PokemonListView: View {
             }
             Text(Strings.PokemonListView.noSelectionText)
         }
+        .alert(Strings.ErrorAlert.title, isPresented: $isShowingAlert) {
+            Button(Strings.ErrorAlert.ok, role: .cancel) {
+                isShowingAlert = false
+            }
+            if (errorNeedsReload) {
+                Button(Strings.ErrorAlert.reload) {
+                    isShowingAlert = false
+                    Task {
+                        do {
+                            try await interactors.pokemonInteractor.loadMorePokemons()
+                        } catch {
+                            errorShowing = error
+                            errorNeedsReload = true
+                            isShowingAlert = true
+                        }
+                    }
+                }
+            }
+        } message: {
+            Text(errorShowing?.localizedDescription ?? "")
+        }
+        
     }
 }
 

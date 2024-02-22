@@ -35,6 +35,12 @@ struct Strings {
         static let clearCacheDisclaimer = "* Deleting from disk not all data. Pokemons that are currently displaying are unavailible for deletion."
     }
     
+    struct ErrorAlert {
+        static let title = "Error"
+        static let ok = "Ok"
+        static let reload = "Reload"
+    }
+    
     struct Sources {
         static let settingsIcon = "gear"
         
