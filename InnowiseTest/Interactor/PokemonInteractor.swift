@@ -13,6 +13,7 @@ protocol PokemonInteractor {
     func loadMorePokemons() async throws
     func loadPokemonDetails(pokemon: Pokemon) async throws
     func clearCache()
+    func clearCurrentPokemons()
 }
 
 ///Interactors receive requests to perform work, such as obtaining data from an external source or making computations, but they never return data back directly, such as in a closure.
@@ -83,6 +84,12 @@ struct RealPokemonInteractor: PokemonInteractor {
             print(error.localizedDescription)
         }
     }
+    
+    func clearCurrentPokemons() {
+        Task {
+            await appState.clearCurrentPokemons()
+        }
+    }
 }
 
 struct FakePokemonInteractor: PokemonInteractor {
@@ -92,5 +99,7 @@ struct FakePokemonInteractor: PokemonInteractor {
     func loadPokemonDetails(pokemon: Pokemon) async throws {
     }
     func clearCache(){
+    }
+    func clearCurrentPokemons(){
     }
 }

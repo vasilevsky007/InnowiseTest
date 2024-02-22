@@ -47,6 +47,11 @@ extension AppState {
         guard let index = self.userData.pokemons.firstIndex(of: pokemon) else { return }
         self.userData.pokemons[index].details = details
     }
+    
+    @MainActor func clearCurrentPokemons() {
+        self.userData.pokemons = []
+        self.userData.pokemonsAvailibleCount = nil
+    }
 }
 
 func == (lhs: AppState, rhs: AppState) -> Bool {

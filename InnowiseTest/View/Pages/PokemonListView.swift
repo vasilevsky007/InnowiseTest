@@ -56,6 +56,9 @@ struct PokemonListView: View {
                         }
                     }
                 }
+                .refreshable {
+                    interactors.pokemonInteractor.clearCurrentPokemons()
+                }
             }
             .navigationTitle(Strings.PokemonListView.navigationTitle)
             .toolbar {
