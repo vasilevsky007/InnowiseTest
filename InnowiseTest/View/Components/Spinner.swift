@@ -10,8 +10,8 @@ import SwiftUI
 struct Spinner: View {
     var body: some View {
         ProgressView()
-            .padding(.all, 20)
-            .scaleEffect(CGSize(width: 2, height: 2))
+            .padding(.all, DrawingConstants.Spinner.size)
+            .scaleEffect(DrawingConstants.Spinner.scale)
     }
 }
 

@@ -25,10 +25,6 @@ extension Pokemon {
     struct Details: Equatable, Codable {
         struct Sprites: Equatable, Codable {
             let front: URL?
-            
-            enum CodingKeys: String, CodingKey {
-                case front = "front_default"
-            }
         }
         
         ///types of the pokemon
@@ -51,19 +47,6 @@ extension Pokemon {
 extension Pokemon.Details {
     typealias PokemonWeight = Int
     typealias PokemonHeight = Int
-}
-
-extension Pokemon.Details.PokemonWeight {
-    //regretfully, this will be showing on any int...
-    var kg: String {
-        "\((Double(self) / 10))"
-    }
-}
-extension Pokemon.Details.PokemonHeight {
-    //regretfully, this will be showing on any int...
-    var cm: String {
-        "\(self * 10)"
-    }
 }
 
 extension Pokemon.Details {

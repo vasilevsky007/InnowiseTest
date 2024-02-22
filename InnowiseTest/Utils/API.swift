@@ -18,9 +18,25 @@ struct API {
         return urlComponents
     }()
     
+    static func pokemonsRequestUrl(fromOffset offset: Int, limit: Int) -> URL {
+        var urlComponents = pokemonEndpoint
+        let queryItems = [
+            URLQueryItem(name: "limit", value: limit.formatted(.number)),
+            URLQueryItem(name: "offset", value: offset.formatted(.number))
+        ]
+        urlComponents.queryItems = queryItems
+        return urlComponents.url!
+    }
+    
     /// struct for decoding pokemon list responce from the API
     struct PokemonsResponse: Codable {
         let count: Int
         let results: [Pokemon]
+    }
+}
+
+extension Pokemon.Details.Sprites {
+    enum CodingKeys: String, CodingKey {
+        case front = "front_default"
     }
 }

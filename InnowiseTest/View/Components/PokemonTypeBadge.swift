@@ -15,17 +15,26 @@ struct PokemonTypeBadge: View {
     var body: some View {
         HStack(alignment: .center) {
             type.image
-                .padding(.all, 8)
+                .padding(.all, DrawingConstants.smallSpacing)
                 .background(type.color, in: .rect)
             Spacer(minLength: 0)
             Text(type.rawValue.localizedCapitalized)
                 .fixedSize(horizontal: true, vertical: false)
             Spacer(minLength: 0)
         }
-        .padding(.trailing, 8)
+        .padding(.trailing, DrawingConstants.smallSpacing)
         .frame(maxWidth: .infinity)
-        .clipShape(.rect(cornerRadius: 10, style: .continuous))
-        .overlay(type.color, in: .rect(cornerRadius: 10, style: .continuous).stroke())
+        .clipShape(.rect(
+            cornerRadius: DrawingConstants.smallCorners,
+            style: .continuous
+        ))
+        .overlay(
+            type.color,
+            in: .rect(
+                cornerRadius: DrawingConstants.smallCorners,
+                style: .continuous)
+            .stroke()
+        )
     }
 }
 

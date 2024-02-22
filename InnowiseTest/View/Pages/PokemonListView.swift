@@ -12,26 +12,16 @@ import CoreData
 struct PokemonListView: View {
     @EnvironmentObject private var appState: AppState
     @Environment(\.interactors) var interactors: InteractorsContainer
-
+    
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink {
-                    VStack {
-                        Text("Cache size")
-                        Text(appState.userData.cacheSize?.formattedFileSize ?? "")
-                        Button("Clear cache") {
-                            interactors.pokemonInteractor.clearCache()
-                        }
-                        Spacer()
-                    }
-                } label: {
-                    Image(systemName: "gear")
-                }
                 List {
                     ForEach($appState.userData.pokemons) { pokemon in
                         NavigationLink {
                             PokemonDetailsView(pokemon: pokemon)
+                                .navigationTitle(pokemon.wrappedValue.name.localizedCapitalized)
+                                .navigationBarTitleDisplayMode(.inline)
                                 .task {
                                     try? await interactors.pokemonInteractor.loadPokemonDetails(pokemon: pokemon.wrappedValue)
                                 }
@@ -41,7 +31,7 @@ struct PokemonListView: View {
                     }
                     if(!appState.userData.allPokemonsLoaded) {
                         HStack(alignment: .center){
-                            Text("Loading...")
+                            Text(Strings.PokemonListView.loadingText)
                             //FIXME: is showing spinner only on initial load.
                             ProgressView()
                             Spacer()
@@ -51,7 +41,17 @@ struct PokemonListView: View {
                     }
                 }
             }
-            Text("Select a pokemon")
+            .navigationTitle(Strings.PokemonListView.navigationTitle)
+            .toolbar {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image(systemName: Strings.Sources.settingsIcon)
+                        .font(.title2)
+                        .padding(DrawingConstants.smallSpacing)
+                }
+            }
+            Text(Strings.PokemonListView.noSelectionText)
         }
     }
 }

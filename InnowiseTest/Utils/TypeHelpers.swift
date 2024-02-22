@@ -10,13 +10,26 @@ import SwiftUI
 extension Pokemon.Details.Types {
     /// color representing this type. taken from bulbapedia
     var color: Color {
-        Color("Colors/" + self.rawValue)
+        Color(Strings.Sources.colorPath + self.rawValue)
     }
 }
 extension Pokemon.Details.Types {
     /// image representing this type. taken from bulbapedia
     var image: Image {
-        Image("Images/" + self.rawValue)
+        Image(Strings.Sources.imagePath + self.rawValue)
+    }
+}
+
+extension Pokemon.Details.PokemonWeight {
+    //regretfully, this will be showing on any int...
+    var kg: String {
+        "\((Double(self) / 10))"
+    }
+}
+extension Pokemon.Details.PokemonHeight {
+    //regretfully, this will be showing on any int...
+    var cm: String {
+        "\(self * 10)"
     }
 }
 

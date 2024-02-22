@@ -18,7 +18,6 @@ protocol PokemonWebRepository {
 /// real web repository, for getting pokemons. should be used inside the app
 struct RealPokemonWebRepository: PokemonWebRepository {
     let session = URLSession(configuration: .ephemeral)
-    let baseURLComponents = API.pokemonEndpoint
     
     /// func for loading given numer of pokemons from the API from the given offset
     /// - Parameters:
@@ -26,13 +25,8 @@ struct RealPokemonWebRepository: PokemonWebRepository {
     ///   - limit: max number of pokemons to return
     /// - Returns: tuple of `Pokemon` array and overall number of pokemons availiable on server
     func loadPokemons(fromOffset offset: Int, limit: Int) async throws -> (pokemons:[Pokemon], availibleCount: Int) {
-        let queryItems = [
-            URLQueryItem(name: "limit", value: limit.formatted(.number)),
-            URLQueryItem(name: "offset", value: offset.formatted(.number))
-        ]
-        var urlComponents = baseURLComponents
-        urlComponents.queryItems = queryItems
-        let (receivedData, response) = try await session.data(from: urlComponents.url!)
+        let url = API.pokemonsRequestUrl(fromOffset: offset, limit: limit)
+        let (receivedData, response) = try await session.data(from: url)
         let dataDecoded = try JSONDecoder().decode(API.PokemonsResponse.self, from: receivedData)
         return (dataDecoded.results, dataDecoded.count)
     }

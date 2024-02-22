@@ -25,7 +25,7 @@ struct PokemonDetailsView: View {
     @ViewBuilder private func loadingPokemonBody(name: String) -> some View {
         Spacer()
         Spinner()
-        Text("Loading pokemon '\(name.localizedCapitalized)' info...")
+        Text(Strings.PokemonDetailsView.loadingPokemonText(name.localizedCapitalized))
         Spacer()
     }
     
@@ -48,9 +48,9 @@ struct PokemonDetailsView: View {
             LazyVStack(alignment: .leading) {
                 Text(name.localizedCapitalized)
                     .font(.largeTitle)
-                Text("Pokemon weight: \(details.weight.kg) kg")
+                Text(Strings.PokemonDetailsView.pokemonWeightText(details.weight.kg))
                     .font(.body)
-                Text("Pokemon height: \(details.height.cm) cm")
+                Text(Strings.PokemonDetailsView.pokemonHeightText(details.height.cm))
                     .font(.body)
                 
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {

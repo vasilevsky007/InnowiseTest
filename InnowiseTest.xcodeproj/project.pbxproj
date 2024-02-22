@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA40CFE72B87651900B4E14C /* DrawingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40CFE62B87651900B4E14C /* DrawingConstants.swift */; };
+		FA40CFE92B8768EC00B4E14C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40CFE82B8768EC00B4E14C /* SettingsView.swift */; };
+		FA40CFEB2B876FF500B4E14C /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40CFEA2B876FF500B4E14C /* Strings.swift */; };
 		FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */; };
 		FAC57FF72B80DD14008D1ACD /* PokemonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */; };
 		FAC57FF92B80DD17008D1ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC57FF82B80DD17008D1ACD /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA40CFE62B87651900B4E14C /* DrawingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingConstants.swift; sourceTree = "<group>"; };
+		FA40CFE82B8768EC00B4E14C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FA40CFEA2B876FF500B4E14C /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		FAC57FF12B80DD14008D1ACD /* InnowiseTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnowiseTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnowiseTestApp.swift; sourceTree = "<group>"; };
 		FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListView.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 				FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */,
 				FAC57FF82B80DD17008D1ACD /* Assets.xcassets */,
 				FAC57FFD2B80DD17008D1ACD /* Persistence.swift */,
+				FA40CFEA2B876FF500B4E14C /* Strings.swift */,
 				FAE344162B86070E00450AC6 /* Errors.swift */,
 				FAE344112B85FB1800450AC6 /* InnowiseTest.xcdatamodeld */,
 				FAC57FFA2B80DD17008D1ACD /* Preview Content */,
@@ -108,6 +115,7 @@
 			children = (
 				FAC5802C2B84A6FA008D1ACD /* Components */,
 				FAC5802F2B84B749008D1ACD /* Pages */,
+				FA40CFE62B87651900B4E14C /* DrawingConstants.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +177,7 @@
 			children = (
 				FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */,
 				FAC580262B84995C008D1ACD /* PokemonDetailsView.swift */,
+				FA40CFE82B8768EC00B4E14C /* SettingsView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -246,7 +255,9 @@
 				FAE344152B85FD8500450AC6 /* PokemonCoreDataRepository.swift in Sources */,
 				FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */,
 				FAE344132B85FB1800450AC6 /* InnowiseTest.xcdatamodeld in Sources */,
+				FA40CFE92B8768EC00B4E14C /* SettingsView.swift in Sources */,
 				FAC5800C2B80E879008D1ACD /* AppState.swift in Sources */,
+				FA40CFEB2B876FF500B4E14C /* Strings.swift in Sources */,
 				FAE344172B86070E00450AC6 /* Errors.swift in Sources */,
 				FAC5802E2B84AEA5008D1ACD /* PokemonTypeBadge.swift in Sources */,
 				FAC580272B84995C008D1ACD /* PokemonDetailsView.swift in Sources */,
@@ -256,6 +267,7 @@
 				FAC5802B2B84A6EE008D1ACD /* Spinner.swift in Sources */,
 				FAC580252B822978008D1ACD /* InteractorsContainer.swift in Sources */,
 				FAC580312B84B78F008D1ACD /* TypeHelpers.swift in Sources */,
+				FA40CFE72B87651900B4E14C /* DrawingConstants.swift in Sources */,
 				FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */,
 				FAC580212B82187D008D1ACD /* API.swift in Sources */,
 				FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */,
