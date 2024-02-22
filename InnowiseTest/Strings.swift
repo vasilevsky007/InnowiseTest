@@ -32,6 +32,7 @@ struct Strings {
         static let clearCacheText = "Clear cache"
         static let cacheSizeText = "Cache size"
         static let noCacheSizeText = "Unable to load cache size"
+        static let clearCacheDisclaimer = "* Deleting from disk not all data. Pokemons that are currently displaying are unavailible for deletion."
     }
     
     struct Sources {

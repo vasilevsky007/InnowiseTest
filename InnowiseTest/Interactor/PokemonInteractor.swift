@@ -20,7 +20,6 @@ protocol PokemonInteractor {
 ///The Binding is used when the result of work (the data) is owned locally by one View and does not belong to the central AppState, that is, it doesn’t need to be persisted or shared with other screens of the app.
 struct RealPokemonInteractor: PokemonInteractor {
     private let step = 30
-    private var availibleCount: Int?
     private var webRepository: PokemonWebRepository
     private var coreDataRepositiry: PokemonCoreDataRepository
     private var appState: AppState
@@ -73,10 +72,10 @@ struct RealPokemonInteractor: PokemonInteractor {
         }
     }
     
-    /// clears persistant storage
+    /// clears persistant storage, except items that are currently showing
     func clearCache() {
         do {
-            try coreDataRepositiry.clearStorage()
+            try coreDataRepositiry.clearStorage(fromOffset: appState.userData.pokemons.count)
         } catch {
             print(error.localizedDescription)
         }

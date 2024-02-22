@@ -16,7 +16,7 @@ protocol PokemonCoreDataRepository {
     func loadPokemons(fromOffset offset: Int, limit: Int) throws -> (pokemons:[Pokemon], availibleCount: Int)
     func savePokemons(_ pokemons: [Pokemon], fromOffset offset: Int,  availibleCount: Int) throws
     func updatePokemon(_ pokemon: Pokemon, updatedDetails: Pokemon.Details) throws
-    func clearStorage() throws
+    func clearStorage(fromOffset offset: Int) throws
 }
 
 /// real core data repository, for storing pokemons. should be used inside the app
@@ -127,19 +127,25 @@ struct RealPokemonCoreDataRepository: PokemonCoreDataRepository {
         try context.save()
     }
     
-    func clearStorage() throws {
+    func clearStorage(fromOffset offset: Int) throws {
         defer {
             updateCoreDataFileSize()
         }
         
         let pokemonRequest: NSFetchRequest<PokemonEntity> = PokemonEntity.fetchRequest()
-        let countRequest: NSFetchRequest<AvailibleCount> = AvailibleCount.fetchRequest()
+        let indexSortDescriptor = NSSortDescriptor(keyPath: \PokemonEntity.index, ascending: true)
+        pokemonRequest.sortDescriptors = [indexSortDescriptor]
+        pokemonRequest.fetchOffset = offset
         //dont know why its not automatically downcasting here
         let pokemonDeleteRequest = NSBatchDeleteRequest(fetchRequest: pokemonRequest as! NSFetchRequest<any NSFetchRequestResult>)
-        let countDeleteRequest = NSBatchDeleteRequest(fetchRequest: countRequest as! NSFetchRequest<any NSFetchRequestResult>)
-        
         try context.execute(pokemonDeleteRequest)
-        try context.execute(countDeleteRequest)
+        
+        if offset == 0 {
+            let countRequest: NSFetchRequest<AvailibleCount> = AvailibleCount.fetchRequest()
+            let countDeleteRequest = NSBatchDeleteRequest(fetchRequest: countRequest as! NSFetchRequest<any NSFetchRequestResult>)
+            try context.execute(countDeleteRequest)
+        }
+        
         try context.save()
     }
     
@@ -170,7 +176,7 @@ struct FakePokemonCoreDataRepository: PokemonCoreDataRepository {
     func updatePokemon(_ pokemon: Pokemon, updatedDetails: Pokemon.Details) throws {
         
     }
-    func clearStorage() throws {
+    func clearStorage(fromOffset: Int) throws {
         
     }
 }

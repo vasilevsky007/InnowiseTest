@@ -21,6 +21,9 @@ struct SettingsView: View {
             } label: {
                 Text(Strings.SettingsView.clearCacheText)
             }.buttonStyle(.borderedProminent)
+            Text(Strings.SettingsView.clearCacheDisclaimer)
+                .foregroundStyle(.secondary)
+                .font(.caption2)
             Divider()
             Spacer().frame(maxWidth: .infinity)
         }
