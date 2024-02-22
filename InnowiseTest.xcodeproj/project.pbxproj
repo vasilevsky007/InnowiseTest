@@ -34,6 +34,7 @@
 		FA40CFE62B87651900B4E14C /* DrawingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingConstants.swift; sourceTree = "<group>"; };
 		FA40CFE82B8768EC00B4E14C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA40CFEA2B876FF500B4E14C /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		FA40CFEC2B87A92C00B4E14C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FAC57FF12B80DD14008D1ACD /* InnowiseTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnowiseTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnowiseTestApp.swift; sourceTree = "<group>"; };
 		FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListView.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		FAC57FE82B80DD14008D1ACD = {
 			isa = PBXGroup;
 			children = (
+				FA40CFEC2B87A92C00B4E14C /* README.md */,
 				FAC57FF32B80DD14008D1ACD /* InnowiseTest */,
 				FAC57FF22B80DD14008D1ACD /* Products */,
 			);
