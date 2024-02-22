@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// detailed view of the specific pokemon.
+/// have 2 main sates: one when details are loaded, one when not
+/// you have to trigger details load outside of this view on your own
 struct PokemonDetailsView: View {
     let pokemon: Binding<Pokemon>
     var body: some View {

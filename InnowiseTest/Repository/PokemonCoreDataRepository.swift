@@ -9,6 +9,8 @@ import Foundation
 import CoreData
 import Combine
 
+/// "facade" protocol for Core Data repository to ensure testability.
+/// you can create your own struct conforming to this protocol suitable for your unit tests
 protocol PokemonCoreDataRepository {
     var coreDataSize: AnyPublisher<Int64?, Never> { get }
     func loadPokemons(fromOffset offset: Int, limit: Int) throws -> (pokemons:[Pokemon], availibleCount: Int)
@@ -17,6 +19,7 @@ protocol PokemonCoreDataRepository {
     func clearStorage() throws
 }
 
+/// real core data repository, for storing pokemons. should be used inside the app
 struct RealPokemonCoreDataRepository: PokemonCoreDataRepository {
     private let context: NSManagedObjectContext
     
@@ -26,6 +29,8 @@ struct RealPokemonCoreDataRepository: PokemonCoreDataRepository {
         return coreDataSizeSubject.eraseToAnyPublisher()
     }
     
+    /// main initializer
+    /// - Parameter context: Core Data context to save pokemons
     init(context: NSManagedObjectContext) {
         self.context = context
         //FIXME: sadly not working. using defer on each changing CD function to ensure updateCoreDataFileSize() call

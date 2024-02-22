@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+///  main view of the app, displaying the list of the pokemos
 struct PokemonListView: View {
     @EnvironmentObject private var appState: AppState
     @Environment(\.interactors) var interactors: InteractorsContainer

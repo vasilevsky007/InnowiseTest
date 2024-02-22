@@ -41,6 +41,8 @@ struct RealPokemonInteractor: PokemonInteractor {
             .store(in: &cancellables)
     }
     
+    /// func for loading pokemons either from APi or from persistant storage.
+    ///  automatically saves data to `AppState` and persistant storage if needed
     func loadMorePokemons() async throws {
         if (!appState.userData.allPokemonsLoaded) {
             do {
@@ -58,6 +60,9 @@ struct RealPokemonInteractor: PokemonInteractor {
         }
     }
     
+    /// func for loading pokemon detailed info from APi
+    /// automatically saves data to persistant storage and `AppState`
+    /// - Parameter pokemon: pokemon to load details
     func loadPokemonDetails(pokemon: Pokemon) async throws {
         if pokemon.details == nil {
             let details = try await webRepository.loadPokemonDetails(pokemon: pokemon)
@@ -68,6 +73,7 @@ struct RealPokemonInteractor: PokemonInteractor {
         }
     }
     
+    /// clears persistant storage
     func clearCache() {
         do {
             try coreDataRepositiry.clearStorage()

@@ -10,6 +10,8 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
+    ///cound use this for prewievs. not using now
+    @available(*, deprecated, message: "App using other methods for getting data for previews")
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
 //        let viewContext = result.container.viewContext

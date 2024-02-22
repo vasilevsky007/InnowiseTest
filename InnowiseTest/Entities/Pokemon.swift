@@ -87,7 +87,7 @@ extension Pokemon.Details {
         case dragon
         case dark
         case fairy
-        //i guess it's Stellar, some translate issues??? look https://bulbapedia.bulbagarden.net/wiki/Type for reference
+        ///i guess it's Stellar, some translate issues??? look https://bulbapedia.bulbagarden.net/wiki/Type for reference
         case shadow
         case unknown
     }

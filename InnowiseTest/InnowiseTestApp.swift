@@ -10,24 +10,25 @@ import SwiftUI
 @main
 struct InnowiseTestApp: App {
     
-    let (appState, interactorsContainer, persistenceController) = createDependencies()
+    let (appState, interactorsContainer) = createDependencies()
 
     var body: some Scene {
         WindowGroup {
             PokemonListView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(appState)
                 .environment(\.interactors, interactorsContainer)
         }
     }
     
-    private static func createDependencies() -> (AppState, InteractorsContainer, PersistenceController) {
+    /// func preparing all needed dependenies for app running
+    /// - Returns: tuple of appstate, the single source of truth for our app, and interactors container.
+    private static func createDependencies() -> (AppState, InteractorsContainer) {
         let persistenceController = PersistenceController.shared
         let appState = AppState()
         let webRepository = RealPokemonWebRepository()
         let coreDataRepositiry = RealPokemonCoreDataRepository(context: persistenceController.container.viewContext)
         let pokemonInteractor = RealPokemonInteractor(webRepository: webRepository, coreDataRepositiry: coreDataRepositiry, appState: appState)
         let interactorsContainer = InteractorsContainer(pokemonInteractor: pokemonInteractor)
-        return (appState, interactorsContainer, persistenceController)
+        return (appState, interactorsContainer)
     }
 }

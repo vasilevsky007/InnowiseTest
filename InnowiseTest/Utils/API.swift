@@ -7,7 +7,9 @@
 
 import Foundation
 
+/// struct containing API specific info
 struct API {
+    /// endpoint `URLComponents` for pokemon list load
     static let pokemonEndpoint = {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -16,6 +18,7 @@ struct API {
         return urlComponents
     }()
     
+    /// struct for decoding pokemon list responce from the API
     struct PokemonsResponse: Codable {
         let count: Int
         let results: [Pokemon]

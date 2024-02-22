@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+/// subview for visual representation of specific pokemon type
 struct PokemonTypeBadge: View {
+    /// a type to display
     let type: Pokemon.Details.Types
     
     var body: some View {
