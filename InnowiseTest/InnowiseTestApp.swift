@@ -28,7 +28,12 @@ struct InnowiseTestApp: App {
         let webRepository = RealPokemonWebRepository()
         let coreDataRepositiry = RealPokemonCoreDataRepository(context: persistenceController.container.viewContext)
         let pokemonInteractor = RealPokemonInteractor(webRepository: webRepository, coreDataRepositiry: coreDataRepositiry, appState: appState)
-        let interactorsContainer = InteractorsContainer(pokemonInteractor: pokemonInteractor)
+        
+        let imageWebRepository = RealImageWebRepository()
+        let imageCoreDataRepositiry = RealImageCoreDataRepository(context: persistenceController.container.viewContext)
+        let imageInteractor = RealImageInteractor(webRepository: imageWebRepository, coreDataRepositiry: imageCoreDataRepositiry, appState: appState)
+        
+        let interactorsContainer = InteractorsContainer(pokemonInteractor: pokemonInteractor, imageInteractor: imageInteractor)
         return (appState, interactorsContainer)
     }
 }

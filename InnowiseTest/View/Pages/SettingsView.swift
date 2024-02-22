@@ -38,7 +38,13 @@ struct SettingsView: View {
     let webRepository = RealPokemonWebRepository()
     let coreDataRepositiry = FakePokemonCoreDataRepository()
     let pokemonInteractor = RealPokemonInteractor(webRepository: webRepository, coreDataRepositiry: coreDataRepositiry, appState: appState)
-    let interactorsContainer = InteractorsContainer(pokemonInteractor: pokemonInteractor)
+    
+    let imageWebRepository = RealImageWebRepository()
+    let imageCoreDataRepositiry = FakeImageCoreDataRepository()
+    let imageInteractor = RealImageInteractor(webRepository: imageWebRepository, coreDataRepositiry: imageCoreDataRepositiry, appState: appState)
+    
+    let interactorsContainer = InteractorsContainer(pokemonInteractor: pokemonInteractor, imageInteractor: imageInteractor)
+    
     return SettingsView()
         .environmentObject(appState)
         .environment(\.interactors, interactorsContainer)

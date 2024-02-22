@@ -22,12 +22,19 @@ extension AppState {
             pokemons.count >= pokemonsAvailibleCount ?? 1
         }
         var cacheSize: Int64? = nil
+        var imageCacheSize: Int64? = nil
     }
     
     /// used for updating displaying size of data cache
     /// - Parameter size: number of bytes
     @MainActor func changeCacheSize(_ size: Int64?) {
         self.userData.cacheSize = size
+    }
+    
+    /// used for updating displaying size of image cache
+    /// - Parameter size: number of bytes
+    @MainActor func changeImageCacheSize(_ size: Int64?) {
+        self.userData.imageCacheSize = size
     }
     
     /// used for adding new pokemons to ``UserData``

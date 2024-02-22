@@ -58,3 +58,16 @@ extension PokemonEntity {
         return size
     }
 }
+
+extension ImageEntity {
+    /// size of this class in memory
+    ///  - Important: update this func if adding new properties to corresponding core data entity
+    var size: Int64 {
+        var size: Int64 = 0
+        size += Int64(MemoryLayout.size(ofValue: self))
+        size += Int64(MemoryLayout.size(ofValue: self.timestamp))
+        size += Int64(MemoryLayout.size(ofValue: self.url))
+        size += Int64(self.data?.count ?? 0)
+        return size
+    }
+}

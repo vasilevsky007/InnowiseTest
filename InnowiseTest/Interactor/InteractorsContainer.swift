@@ -14,14 +14,16 @@ import SwiftUI
 struct InteractorsContainer: EnvironmentKey {
     
     let pokemonInteractor: PokemonInteractor
+    let imageInteractor: ImageInteractor
     
-    init(pokemonInteractor: PokemonInteractor) {
+    init(pokemonInteractor: PokemonInteractor, imageInteractor: ImageInteractor) {
         self.pokemonInteractor = pokemonInteractor
+        self.imageInteractor = imageInteractor
     }
     
     ///used for tests, not the actual realization
     static var defaultValue: InteractorsContainer {
-        return .init(pokemonInteractor: FakePokemonInteractor())
+        return .init(pokemonInteractor: FakePokemonInteractor(), imageInteractor: FakeImageInteractor())
     }
 }
 

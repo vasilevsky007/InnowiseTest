@@ -10,6 +10,11 @@
 		FA40CFE72B87651900B4E14C /* DrawingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40CFE62B87651900B4E14C /* DrawingConstants.swift */; };
 		FA40CFE92B8768EC00B4E14C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40CFE82B8768EC00B4E14C /* SettingsView.swift */; };
 		FA40CFEB2B876FF500B4E14C /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40CFEA2B876FF500B4E14C /* Strings.swift */; };
+		FA4490B32B87E42F006EB9B0 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4490B22B87E42F006EB9B0 /* ImageData.swift */; };
+		FA4490B52B87E706006EB9B0 /* ImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4490B42B87E706006EB9B0 /* ImageInteractor.swift */; };
+		FA4490B92B87E837006EB9B0 /* ImageWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4490B82B87E837006EB9B0 /* ImageWebRepository.swift */; };
+		FA4490BB2B87E992006EB9B0 /* ImageCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4490BA2B87E992006EB9B0 /* ImageCoreDataRepository.swift */; };
+		FA4490BD2B87FBC2006EB9B0 /* LoadableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4490BC2B87FBC2006EB9B0 /* LoadableImage.swift */; };
 		FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */; };
 		FAC57FF72B80DD14008D1ACD /* PokemonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */; };
 		FAC57FF92B80DD17008D1ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC57FF82B80DD17008D1ACD /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 		FA40CFE82B8768EC00B4E14C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA40CFEA2B876FF500B4E14C /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		FA40CFEC2B87A92C00B4E14C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA4490B22B87E42F006EB9B0 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		FA4490B42B87E706006EB9B0 /* ImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInteractor.swift; sourceTree = "<group>"; };
+		FA4490B82B87E837006EB9B0 /* ImageWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWebRepository.swift; sourceTree = "<group>"; };
+		FA4490BA2B87E992006EB9B0 /* ImageCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoreDataRepository.swift; sourceTree = "<group>"; };
+		FA4490BC2B87FBC2006EB9B0 /* LoadableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableImage.swift; sourceTree = "<group>"; };
 		FAC57FF12B80DD14008D1ACD /* InnowiseTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnowiseTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC57FF42B80DD14008D1ACD /* InnowiseTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnowiseTestApp.swift; sourceTree = "<group>"; };
 		FAC57FF62B80DD14008D1ACD /* PokemonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListView.swift; sourceTree = "<group>"; };
@@ -67,6 +77,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA4490B62B87E7FB006EB9B0 /* Pokemon */ = {
+			isa = PBXGroup;
+			children = (
+				FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */,
+				FAE344142B85FD8500450AC6 /* PokemonCoreDataRepository.swift */,
+			);
+			path = Pokemon;
+			sourceTree = "<group>";
+		};
+		FA4490B72B87E809006EB9B0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FA4490B82B87E837006EB9B0 /* ImageWebRepository.swift */,
+				FA4490BA2B87E992006EB9B0 /* ImageCoreDataRepository.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		FAC57FE82B80DD14008D1ACD = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC5800F2B81FB47008D1ACD /* PokemonInteractor.swift */,
+				FA4490B42B87E706006EB9B0 /* ImageInteractor.swift */,
 				FAC580242B822978008D1ACD /* InteractorsContainer.swift */,
 			);
 			path = Interactor;
@@ -142,8 +171,8 @@
 		FAC5800A2B80DE56008D1ACD /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				FAC580112B81FD48008D1ACD /* PokemonWebRepository.swift */,
-				FAE344142B85FD8500450AC6 /* PokemonCoreDataRepository.swift */,
+				FA4490B62B87E7FB006EB9B0 /* Pokemon */,
+				FA4490B72B87E809006EB9B0 /* Image */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -161,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC5801A2B8208A0008D1ACD /* Pokemon.swift */,
+				FA4490B22B87E42F006EB9B0 /* ImageData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -170,6 +200,7 @@
 			children = (
 				FAC5802A2B84A6EE008D1ACD /* Spinner.swift */,
 				FAC5802D2B84AEA5008D1ACD /* PokemonTypeBadge.swift */,
+				FA4490BC2B87FBC2006EB9B0 /* LoadableImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -257,6 +288,7 @@
 				FAE344152B85FD8500450AC6 /* PokemonCoreDataRepository.swift in Sources */,
 				FAC57FFE2B80DD17008D1ACD /* Persistence.swift in Sources */,
 				FAE344132B85FB1800450AC6 /* InnowiseTest.xcdatamodeld in Sources */,
+				FA4490B32B87E42F006EB9B0 /* ImageData.swift in Sources */,
 				FA40CFE92B8768EC00B4E14C /* SettingsView.swift in Sources */,
 				FAC5800C2B80E879008D1ACD /* AppState.swift in Sources */,
 				FA40CFEB2B876FF500B4E14C /* Strings.swift in Sources */,
@@ -272,7 +304,11 @@
 				FA40CFE72B87651900B4E14C /* DrawingConstants.swift in Sources */,
 				FAC57FF52B80DD14008D1ACD /* InnowiseTestApp.swift in Sources */,
 				FAC580212B82187D008D1ACD /* API.swift in Sources */,
+				FA4490B52B87E706006EB9B0 /* ImageInteractor.swift in Sources */,
+				FA4490B92B87E837006EB9B0 /* ImageWebRepository.swift in Sources */,
+				FA4490BD2B87FBC2006EB9B0 /* LoadableImage.swift in Sources */,
 				FAC580122B81FD48008D1ACD /* PokemonWebRepository.swift in Sources */,
+				FA4490BB2B87E992006EB9B0 /* ImageCoreDataRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

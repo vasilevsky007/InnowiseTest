@@ -41,8 +41,14 @@ struct Strings {
         static let reload = "Reload"
     }
     
+    struct LoadableImage {
+        static let reload = "Reload"
+    }
+    
     struct Sources {
         static let settingsIcon = "gear"
+        static let errorIcon = "exclamationmark.triangle"
+        static let reloadIcon = "arrow.clockwise"
         
         static let colorPath = "Colors/"
         static let imagePath = "Images/"

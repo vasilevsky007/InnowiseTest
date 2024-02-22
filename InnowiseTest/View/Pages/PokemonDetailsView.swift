@@ -11,11 +11,18 @@ import SwiftUI
 /// have 2 main sates: one when details are loaded, one when not
 /// you have to trigger details load outside of this view on your own
 struct PokemonDetailsView: View {
+    @Environment(\.interactors) var interactors: InteractorsContainer
+    
     let pokemon: Binding<Pokemon>
+    @State private var image: ImageData?
+    
     var body: some View {
         VStack(alignment: .center) {
             if let details = pokemon.wrappedValue.details {
                 loadedPokemonBody(name: pokemon.wrappedValue.name, details: details)
+                    .task {
+                        loadImage()
+                    }
             } else {
                 loadingPokemonBody(name: pokemon.wrappedValue.name)
             }
@@ -32,15 +39,8 @@ struct PokemonDetailsView: View {
     @ViewBuilder private func loadedPokemonBody(name: String, details: Pokemon.Details) -> some View {
         Divider()
         
-        AsyncImage(url: details.sprites.front) { image in
-            image
-                .resizable(resizingMode: .stretch)
-                .aspectRatio(contentMode: .fit)
-        } placeholder: {
-            Spacer()
-            Spinner()
-                .aspectRatio(contentMode: .fit)
-            Spacer()
+        LoadableImage(image: $image) {
+            loadImage()
         }
         
         Divider()
@@ -61,6 +61,14 @@ struct PokemonDetailsView: View {
             }
         }
         Spacer()
+    }
+    
+    private func loadImage() {
+        Task {
+            guard let imageUrl = pokemon.wrappedValue.details?.sprites.front else { return }
+            image = ImageData(url: imageUrl, state: .loading)
+            await interactors.imageInteractor.loadImageData($image)
+        }
     }
 }
 
