@@ -12,22 +12,33 @@ struct SettingsView: View {
     @Environment(\.interactors) var interactors: InteractorsContainer
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(Strings.SettingsView.cacheSizeText)
-                .font(.title2)
-            Text(appState.userData.cacheSize?.formattedFileSize ?? Strings.SettingsView.noCacheSizeText)
-            Button(role: .destructive) {
-                interactors.pokemonInteractor.clearCache()
-            } label: {
-                Text(Strings.SettingsView.clearCacheText)
-            }.buttonStyle(.borderedProminent)
-            Text(Strings.SettingsView.clearCacheDisclaimer)
-                .foregroundStyle(.secondary)
-                .font(.caption2)
-            Divider()
-            Spacer().frame(maxWidth: .infinity)
+        ScrollView {
+            VStack(alignment: .leading) {
+                Text(Strings.SettingsView.cacheSizeText)
+                    .font(.title2)
+                Text(appState.userData.cacheSize?.formattedFileSize ?? Strings.SettingsView.noCacheSizeText)
+                Button(role: .destructive) {
+                    interactors.pokemonInteractor.clearCache()
+                } label: {
+                    Text(Strings.SettingsView.clearCacheText)
+                }.buttonStyle(.borderedProminent)
+                Text(Strings.SettingsView.clearCacheDisclaimer)
+                    .foregroundStyle(.secondary)
+                    .font(.caption2)
+                Divider()
+                Text(Strings.SettingsView.imageCacheSizeText)
+                    .font(.title2)
+                Text(appState.userData.imageCacheSize?.formattedFileSize ?? Strings.SettingsView.noCacheSizeText)
+                Button(role: .destructive) {
+                    interactors.imageInteractor.clearImageCache()
+                } label: {
+                    Text(Strings.SettingsView.clearCacheText)
+                }.buttonStyle(.borderedProminent)
+                Divider()
+                Spacer().frame(maxWidth: .infinity)
+            }
+            .padding(DrawingConstants.standardSpacing)
         }
-        .padding(DrawingConstants.standardSpacing)
         .navigationTitle(Strings.SettingsView.navigationTitle)
         .navigationBarTitleDisplayMode(.inline)
     }
