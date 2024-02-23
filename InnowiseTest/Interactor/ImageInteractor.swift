@@ -55,6 +55,7 @@ struct RealImageInteractor: ImageInteractor {
             do {
                 let fetchedData = try await webRepository.loadImageData(from: image.wrappedValue!.url)
                 image.wrappedValue!.state = .loaded(imageData: fetchedData)
+                try coreDataRepository.saveImage(image.wrappedValue!)
             } catch {
                 image.wrappedValue!.state = .error(error: error)
             }
