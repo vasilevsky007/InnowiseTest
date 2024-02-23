@@ -18,6 +18,11 @@ struct API {
         return urlComponents
     }()
     
+    /// func for building url to request pokemons from the API
+    /// - Parameters:
+    ///   - offset: offset from which to request pokemons
+    ///   - limit: max number of requested items
+    /// - Returns: URL for the API request
     static func pokemonsRequestUrl(fromOffset offset: Int, limit: Int) -> URL {
         var urlComponents = pokemonEndpoint
         let queryItems = [

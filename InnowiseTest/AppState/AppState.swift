@@ -55,6 +55,7 @@ extension AppState {
         self.userData.pokemons[index].details = details
     }
     
+    /// used for deleting all currently displaying pokemons (for list reload)
     @MainActor func clearCurrentPokemons() {
         self.userData.pokemons = []
         self.userData.pokemonsAvailibleCount = nil

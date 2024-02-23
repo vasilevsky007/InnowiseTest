@@ -12,10 +12,34 @@ import Combine
 /// "facade" protocol for Core Data repository to ensure testability.
 /// you can create your own struct conforming to this protocol suitable for your unit tests
 protocol PokemonCoreDataRepository {
+    /// for publishing changes about core data pokemon cache size
     var coreDataSize: AnyPublisher<Int64?, Never> { get }
+    
+    /// func for loading pokemons from core data
+    /// - Parameters:
+    ///   - offset: from which offset to load from
+    ///   - limit: max number of returning pokemons
+    /// - Returns: tuple of array of pokemons and count of pokemons availible on server
     func loadPokemons(fromOffset offset: Int, limit: Int) throws -> (pokemons:[Pokemon], availibleCount: Int)
+    
+    
+    /// func for saving pokemons to core data
+    /// - Parameters:
+    ///   - pokemons: array of pokemons to save
+    ///   - offset: the initial offset of saving pokemons
+    ///   - availibleCount: count of pokemons availible on server
     func savePokemons(_ pokemons: [Pokemon], fromOffset offset: Int,  availibleCount: Int) throws
+    
+    
+    /// func for saving pokemon details to core data
+    /// - Parameters:
+    ///   - pokemon: pokemon to save details about
+    ///   - updatedDetails: details to save
     func updatePokemon(_ pokemon: Pokemon, updatedDetails: Pokemon.Details) throws
+    
+    
+    /// func for deleting all pokemons froms core data, starting from sthe given offset
+    /// - Parameter offset: offset from which to satrt pokemon deletion
     func clearStorage(fromOffset offset: Int) throws
 }
 

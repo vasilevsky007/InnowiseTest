@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// settings view of the app. now used for displaying cache parameters
 struct SettingsView: View {
     @EnvironmentObject private var appState: AppState
     @Environment(\.interactors) var interactors: InteractorsContainer

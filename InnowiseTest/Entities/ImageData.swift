@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// struct to represent image saved on a remote server
 struct ImageData {
     enum State {
         case loading

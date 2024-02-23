@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// all numeric constants used to draw vievs stored here
 struct DrawingConstants {
     
     // MARK: - spacing

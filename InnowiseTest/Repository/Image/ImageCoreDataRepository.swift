@@ -12,9 +12,19 @@ import Combine
 /// "facade" protocol for Core Data repository to ensure testability.
 /// you can create your own struct conforming to this protocol suitable for your unit tests
 protocol ImageCoreDataRepository {
+    /// for publishing changes about core data image cache size
     var coreDataSize: AnyPublisher<Int64?, Never> { get }
+    
+    /// func to load image with given url  from Core Data
+    /// - Parameter url: Image Url
+    /// - Returns: optional data of the given image, or nil if not found
     func loadImage(withUrl url: URL) throws -> Data?
+    
+    /// func for save imagedata to Core Data
+    /// - Parameter image: image to save
     func saveImage(_ image: ImageData) throws
+    
+    /// func for deleting all saved imagedata from Core Data
     func clearStorage() throws
 }
 

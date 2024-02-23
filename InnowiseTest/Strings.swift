@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// struct to remove "magical" strings from sources
+/// struct to remove "magical" strings from source files
 struct Strings {
     struct PokemonListView {
         static let navigationTitle = "Pokemons"

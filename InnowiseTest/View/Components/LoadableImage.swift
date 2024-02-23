@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// subview for visual representation of image that can be loaded
 struct LoadableImage: View {
+    /// image to display
     let image: Binding<ImageData?>
+    /// clojure for trying to reload button
     let reloadImage: () -> Void
     
     var body: some View {
